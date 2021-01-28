@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<title>Count Down</title>
+<style>
+    
+    
+    
+</style>
+    </head>   
+<body>
+    <div id="message">Count Down</div>
+    <input type="date" onchange="start()">
+    <div id="output"></div>
+    <script>
+        var cDate,eDate,s,m,h,d,t;
+        var output=document.getElementById("output");
+    function start()
+        {
+            var tDate=event.target.valueAsDate;
+            message.innerHTML=tDate;
+            cDate=new Date();
+            eDate=new Date(tDate);
+            outputUpdate()
+            t=window.setTimeout(update,1000);
+        }
+        function update()
+        {
+            
+            outputUpdate()
+            t=window.setTimeout(update,1000);
+        }
+    
+    function outputUpdate()
+        {
+        cDate=new Date();
+        /*    s=Math.round((eDate-cDate)/1000)
+            m=Math.round(s/60);
+            h=Math.round(m/60);
+            d=Math.round(h/24);
+            output.innerHTML="Days= "+d+" hours= "+h+" minits= "+m+" seconds="+s;
+        //output.innerHTML=s;*/
+            
+            var dur=eDate-cDate;
+            s=Math.floor((dur%(1000*60))/1000);
+            s=s<10?"0"+s:s
+            m=Math.floor((dur%(1000*60*60))/(1000*60));
+             m=m<10?"0"+m:m           
+            h=Math.floor((dur%(1000*60*60*24))/(1000*60*60));
+            d=Math.floor(dur/(1000*60*60*24));
+            output.innerHTML=d+" : "+h+": "+m+": "+s+": "
+            
+        }
+    
+    </script>
+    </body>
+</html>

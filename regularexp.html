@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+    <title></title>
+    
+</head>
+<body>
+    <div id="output"></div>
+    <input type="text" id="email" value="email@email.com">
+    <input type="text" id="numb" value="122334">
+    <input type="text" id="char" value="only text">
+    <input type="button" onclick="myfun()" value="validate email">
+    <script>
+        var output=document.getElementById("output")
+    function myfun()
+        {
+        if(document.getElementById("email"))
+                {
+            var e=document.getElementById("email").value
+            var p=/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z.]+)/ig;
+            var r =e.match(p)
+           // console.log(r)
+            if(e.match(p)){
+                output.innerHTML="true"
+            }
+            else{
+                alert("you have entered wrong input in email")
+            }
+        }
+                
+        if(document.getElementById("numb"))
+                {
+            var e=document.getElementById("numb").value
+           // console.log(e);
+            var p=/^([0-9]){10}$/;
+//            /*/*var r =e.match(p)
+//            console.log(r)
+           if(e.match(p)){
+                output.innerHTML="true"
+            }
+            else{
+                alert("you have entered wrong input in number")
+            }
+       
+                }
+            
+        if(document.getElementById("char"))
+                {
+            var e=document.getElementById("char").value
+            var p=/^([a-zA-Z]){2,10}$/i;
+            var r =e.match(p)
+            //console.log(r)
+            if(r){
+                output.innerHTML="true"
+            }
+            else{
+                alert("you have entered wrong input in character")
+            }
+        }
+        }
+    
+    
+    </script>
+</body>
+
+
+
+</html>
